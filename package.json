@@ -1,7 +1,7 @@
 {
-  "name": "vue-chrome-cli",
+  "name": "chrome-extension-cli",
   "version": "0.0.1",
-  "description": "create chrome extension use Vue.js.",
+  "description": "Create a chrome extension using a third-party framework such as vue.",
   "main": "index.js",
   "directories": {
     "lib": "lib"
