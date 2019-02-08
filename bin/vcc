@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+const fs = require('fs');
+const program = require('commander');
+const pkg = require('../package.json');
+
+program
+    .command('create')
+    .alias('c')
+    .description('create an app')
+    .action(() => {
+        if (!program.index) {
+            const msg = 'Need name! Use --n <name>';
+            console.log(JSON.stringify({ error: msg }));
+            return;
+        }
+        request.put(fulUrl(), handleResponse);
+    })
+
+
+program
+    .version(pkg.version)
+    .description(pkg.description)
+    .usage('[options] <command> [...]')
+    .option('-m,--model', 'select model for app')
+    .option('-n,--name <name>', 'input app name')
+    .option('-a,--type <all>', 'default type')
+    .option('-b,--type <background>', 'type for background')
+    .option('-c,--type <content>', 'type for content')
+    .option('-p,--type <popup>', 'type for popup')
+
+program.parse(process.argv);
+
+if (!program.args.filter(arg => typeof arg === 'object').length) {
+    program.help();
+}
